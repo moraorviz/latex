@@ -1,9 +1,10 @@
 \documentclass{beamer}
 
 \usepackage[spanish]{babel}
+\usepackage{listings}
 \selectlanguage{spanish}
 \usepackage[utf8]{inputenc}
-\setbeamersize{text margin left=10mm,text margin right=1mm}
+\setbeamersize{text margin left=10mm,text margin right=3mm}
 
 \title % (optional, only for long titles)
 {TypeScript}
@@ -20,6 +21,20 @@
 \date[KPT 2004] % (optional)
 {Diciembre 2018}
 \subject{Computer Science}
+
+\lstdefinestyle{customc}{
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	frame=L,
+	xleftmargin=\parindent,
+	language=C,
+	showstringspaces=false,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{green!40!black},
+	commentstyle=\itshape\color{purple!40!black},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange},
+}
 
 \begin{document}
 	
@@ -112,7 +127,7 @@ Escalar sitios web a aplicaciones más grandes
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Principales características I}
 
 \small
@@ -136,28 +151,89 @@ Escalar sitios web a aplicaciones más grandes
 			\item Fuertemente tipado (estático) y comprobación de tipos en tiempo de ejecución
 			\item Tipos enum, void. Inferencia de tipos
 		\end{itemize}
-		
+
 	\end{column}
 \end{columns}
 
+\tiny
+ \begin{lstlisting}[style=customc, frame=single]
+/** Funcion con tipo de retorno number. */
+funcion restar (n1: number, n2: number): 
+	number {return n1 + n2;}
+	
+/** Funcion sin tipo de retorno. Se infiere de los parametros y el return */
+funcion restar () (n1: number, n2:number)
+	{return n1 + n2;}
+\end{lstlisting}
 
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Principales características II}
+Posibilidad de definir tus propios ''tipos'' a partir de otros tipos primitivos. 
+\small
+\begin{lstlisting}[style=customc, frame=single]
+type Contador = number | string;
+
+funcion mostrarAsignaturas (asignatura: Contador): string {
+	return `Tengo ${asignatura} asignaturas.`;
+}
+\end{lstlisting}
+Se define contador de tipo number o string. El parámetro de entrada de la función es de tipo contador
+por lo que puede ser uno de ambos tipos primitivos. 
+
+Soporta parámetros opcionales
+
+\begin{lstlisting}[style=customc, frame=single]
+function funcionConParametroOpcional(nombre: string, 
+	age?: number)
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Principales características III}
+Interfaces. Siguiendo la filosofía de ser un lenguaje orientado a objetos y basado en clases.
+Durante la transcompilación de código .ts a .js, las interfaces no generan código EC6. 
+Simplemente se utilizan durante el desarrollo typescript a modo de ''contratos''.
+\begin{lstlisting}[style=customc, frame=single]
+interface Persona {
+	nombre: string;
+}
+
+let a: Persona = {
+	nombre: 'Pedro'
+}
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}
-\frametitle{Ejemplo de aplicación}
-In progres...
+\frametitle{Conclusiones}
+	\begin{itemize}
+		\item Buena curva de aprendizaje 
+		\item Es necesario saber javascript (misma sintaxis y semántica)
+		\item Permite reusar js y sus librerías
+		\item Produce código limpio y garantiza compatibilidad con el navegador
+		\item Escalabilidad
+		\item Open source
+		\item Comunidad activa
+		\item Menos código que en js. Ahorra tiempo
+		\item Código más legible
+		\item En pleno desarrollo
+		
+	\end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Valoración del lenguaje}
-In progres...
-\end{frame}
 
 \begin{frame}{Referencias}
 \begin{itemize}  
 	\item https://blogs.msdn.microsoft.com/somasegar/2012/10/01 \\ /typescript-javascript-development-at-application-scale/
 	\item TypeScript Deep Dive. Basarat Ali Syed. 
-	\item More references \ldots 
+	\item https://fullstack-developer.academy/debugging-typescript-in-the-browser/
+	\item https://www.typescriptlang.org/
+	\item https://dzone.com/articles/what-is-typescript-and-why-use-it
 \end{itemize}
 \end{frame}
 
