@@ -63,15 +63,27 @@
 		\caption{Errores inline gracias a TSC}
 	\end{figure}
 
-	Otra ca
+	Otra característica principal es su interoperabilidad con javascript. Además de continuar utilizando sus librerías, los usuarios de ts cuentan con la posbilidad de declarar crear un fichero de declaración que les permite utilizar sus característicar sin tener que modificar el código js. Ésto es útil porque permite integrar el lenguaje con IntelliSense de visual estudio y hacer comprobaciones en tiempo de compilación: uso del DOM, librerías jQuery y WinRT, etc. \\
+	
+	El sistema de tipos de typescript es ligero con lo que los desarrolladores no están obligados a introducir tipado en todos los componentes del proyecto al hacer una migración desde javascript. Ésto se utilizan de manera opcional en mayor medida cuanto mayor sea la necesidad del usuario de mejorar su entorno de trabajo. El compilador TSC también tiene la capacidad de inferir tipos automáticamente.
     
     \section{Principales características}
     
+    Entre las principales características de typescript destacan que permite declarar clases y utilizar módulos. El nivel de encapsulación que se consigue con typescript es grande debido a que su orientación a objetos es fuerte, idea obtenida de ECMAScript 6 pero adelantándose a la release. A continuación se presenta un ejemplo de declaración de clase en typescript y el correspondiente código js generado:
+    
+    \begin{figure}[h]
+    	\centering
+    	\includegraphics[width=0.8\textwidth]{imagenes/ts7.png}
+    	\caption{Declaración de clase(izda) y código generado (dcha)}
+    \end{figure}
+
+	Typescript dota también de acceso a interfaces, lo cual habilita mecanismos para utilizar herencia y funcionalidad compartida de los objetos creados, además del mencionado sistema de módulos para agrupar código relacionado en espacios de nombres. Es compatible con los sistemas de cargar módulos de typescript como Commonjs, con lo que se pueden cargar en tiempo de ejecución y cargar dependencias entre ellos. Éstas y otras características de typescript dotan a los sitios web escritos en js de la capacidad de escalar a portales más grandes de forma más eficiente y segura.
     
     \section{Ejemplo de aplicación}
     
+    Hemos realizado una pequeña aplicación a modo de ejemplo utilizando el framework angular, que utiliza typescript como lenguaje base para la construcción de aplicaciones. Se trata de un pequeño portal web sobre información de la NBA. Está desplegada en una de las máquinas virtuales de la escuela (ubuntu): www.moraorviz.com/angular-experimental.
     
-    \section{Motivación del lenguaje}
+    \section{Conclusiones y valoración}
     
 
 	
